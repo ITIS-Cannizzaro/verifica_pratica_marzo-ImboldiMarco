@@ -48,6 +48,8 @@ public class imboldi
 			break;
 		}
 	}
+
+	// Accordino: ok! 2pt
 	public static void es1()
 	{	
 		int[] array = new int[10];
@@ -87,47 +89,53 @@ public class imboldi
 		}
 		System.out.println("Prima occorrenza del valore minimo: " + primaPosizione);
 	}
+
+	// Accordino: senza quelle graffe si bloccava tutto il programma; 1pt
 	public static void es2()
 	{
 		String[] parole = {"cane", "gatto", "uccello", "pesce", "pietro"};      
 		Scanner scanner = new Scanner(System.in);
 		int tentativiRimasti = 3;
-		while (tentativiRimasti > 0)                  
+		while (tentativiRimasti > 0)     // Accordino: avevi dimenticato le graffe!!!
+		{
 			System.out.print("Indovina una delle seguenti parole: ");
-		for (int i = 0; i < parole.length; i++) 
-		{
-			System.out.print(parole[i] + " ");
-		}
-		System.out.println();
-		System.out.print("Tentativi rimasti: " + tentativiRimasti + ". Inserisci la parola: ");
-		String parolaIndovinata = scanner.nextLine();  
-		boolean parolaTrovata = false;
-		for (int i = 0; i < parole.length; i++) 
-		{
-			if (parole[i].equalsIgnoreCase(parolaIndovinata)) 
+			for (int i = 0; i < parole.length; i++) 
 			{
-				parolaTrovata = true;
-				break;
+				System.out.print(parole[i] + " ");
 			}
-		}
-		if (parolaTrovata) 
-		{
-			System.out.println("Bravo, hai indovinato!");
-			return;
-		} 
-		else 
-		{
-			tentativiRimasti--;
-			if (tentativiRimasti > 0) 
+			System.out.println();
+			System.out.print("Tentativi rimasti: " + tentativiRimasti + ". Inserisci la parola: ");
+			String parolaIndovinata = scanner.nextLine();  
+			boolean parolaTrovata = false;
+			for (int i = 0; i < parole.length; i++) 
 			{
-				System.out.println("La parola inserita non è corretta. Riprova.");
+				if (parole[i].equalsIgnoreCase(parolaIndovinata)) 
+				{
+					parolaTrovata = true;
+					break;
+				}
+			}
+			if (parolaTrovata) 
+			{
+				System.out.println("Bravo, hai indovinato!");
+				return;
 			} 
 			else 
 			{
-				System.out.println("Hai esaurito i tentativi disponibili. La parola corretta era: " + parole[0]);
+				tentativiRimasti--;
+				if (tentativiRimasti > 0) 
+				{
+					System.out.println("La parola inserita non è corretta. Riprova.");
+				} 
+				else 
+				{
+					System.out.println("Hai esaurito i tentativi disponibili. La parola corretta era: " + parole[0]);
+				}
 			}
-		}      
+		}
 	}
+	
+	// Accordino: stampa i numeri pari ma non in ordine crescente! 1.5 pt
 	public static void es3()	
 	{
 		int[] numeri = new int[20];
@@ -150,7 +158,7 @@ public class imboldi
 				j++;
 			}
 		}        
-		if (numeri.length/2==1)
+		if (numeri.length/2==1) // Accordino: non ho capito a cosa serve questo if
 		{
 			System.out.println();
 		}             
@@ -161,6 +169,8 @@ public class imboldi
 		}
 		System.out.println();
 	}
+	
+	// Accordino, c'eri davvero vicino; 2.5pt
 	public static void es4()
 	{		
 		int[] array1 = new int[50];
@@ -170,9 +180,10 @@ public class imboldi
 		{
 			array1[i] = random.nextInt(100) + 1;
 		}		        
+		// Questo ciclo doveva ripetersi per array1.lenght sennò non controlla tutti i numeri dell'array grande
 		for (int i = 0; i < array2.length; i++) 
 		{
-			for (int j = 2; j <= 10; j++) 
+			for (int j = 2; j <= 10; j++) // e ui j < 10, sennò controlla anche l'elemento 8, cioé il nono 
 			{		            	
 				if (array1[i] % j == 0) 
 				{
